@@ -1,21 +1,102 @@
 export const states = [
-  { name: 'Baden-Württemberg', displayName: 'Baden-Württemberg', description: 'Schwarzwald, Bodensee und wunderbare Burgen' },
-  { name: 'Bayern', displayName: 'Bayern', description: 'Zugspitze, Neuschwanstein und Alpenlandschaft' },
-  { name: 'Berlin', displayName: 'Berlin', description: 'Historische Türme und Seenlandschaften' },
-  { name: 'Brandenburg', displayName: 'Brandenburg', description: 'Sanssouci, Spreewald und Seen' },
-  { name: 'Bremen', displayName: 'Bremen', description: 'Hafenstadt mit Flair und Flusslandschaften' },
-  { name: 'Hamburg', displayName: 'Hamburg', description: 'Elbe, HafenCity und Hafenpanorama' },
-  { name: 'Hessen', displayName: 'Hessen', description: 'Taunus, Main und Vogelsberg' },
-  { name: 'Mecklenburg-Vorpommern', displayName: 'Mecklenburg-Vorpommern', description: 'Rügen, Seen und Küstenlandschaften' },
-  { name: 'Niedersachsen', displayName: 'Niedersachsen', description: 'Harz, Heide und Wattenmeernatur' },
-  { name: 'Nordrhein-Westfalen', displayName: 'Nordrhein-Westfalen', description: 'Rhein, Siebengebirge und Bergisches Land' },
-  { name: 'Rheinland-Pfalz', displayName: 'Rheinland-Pfalz', description: 'Mosel, Rhein und historische Burgen' },
-  { name: 'Saarland', displayName: 'Saarland', description: 'Saarschleife und Naturschutzgebiete' },
-  { name: 'Sachsen', displayName: 'Sachsen', description: 'Bastei, Elbtal und Erzgebirge' },
-  { name: 'Sachsen-Anhalt', displayName: 'Sachsen-Anhalt', description: 'Brocken, Harz und Saale-Unstrut' },
-  { name: 'Schleswig-Holstein', displayName: 'Schleswig-Holstein', description: 'Nordsee, Ostsee und Inseln' },
-  { name: 'Thüringen', displayName: 'Thüringen', description: 'Wartburg, Hainich und Thüringerwald' },
-]
+  { 
+    name: 'Baden-Württemberg', 
+    displayName: 'Baden-Württemberg', 
+    description: 'Schwarzwald, Bodensee und wunderbare Burgen', 
+    image: "/images/Baden-Württemberg.png"
+  },
+  { 
+    name: 'Bayern', 
+    displayName: 'Bayern', 
+    description: 'Zugspitze, Neuschwanstein und Alpenlandschaft',
+    image: "/images/Bayern.png"
+  },
+  { 
+    name: 'Berlin', 
+    displayName: 'Berlin', 
+    description: 'Historische Türme und Seenlandschaften',
+    image: "/images/Berlin.png"
+  },
+  { 
+    name: 'Brandenburg', 
+    displayName: 'Brandenburg', 
+    description: 'Sanssouci, Spreewald und Seen',
+    image: "/images/Brandenburg.png"
+  },
+  { 
+    name: 'Bremen', 
+    displayName: 'Bremen', 
+    description: 'Hafenstadt mit Flair und Flusslandschaften',
+    image: "/images/Bremen.png"
+  },
+  { 
+    name: 'Hamburg', 
+    displayName: 'Hamburg', 
+    description: 'Elbe, HafenCity und Hafenpanorama',
+    image: "/images/Hamburg.png"
+  },
+  { 
+    name: 'Hessen', 
+    displayName: 'Hessen', 
+    description: 'Taunus, Main und Vogelsberg',
+    image: "/images/Hessen.png"
+  },
+  { 
+    name: 'Mecklenburg-Vorpommern', 
+    displayName: 'Mecklenburg-Vorpommern', 
+    description: 'Rügen, Seen und Küstenlandschaften',
+    image: "/images/Mecklenburg-Vorpommern.png"
+  },
+  { 
+    name: 'Niedersachsen', 
+    displayName: 'Niedersachsen', 
+    description: 'Harz, Heide und Wattenmeernatur',
+    image: "/images/Niedersachsen.png"
+  },
+  { 
+    name: 'Nordrhein-Westfalen', 
+    displayName: 'Nordrhein-Westfalen', 
+    description: 'Rhein, Siebengebirge und Bergisches Land',
+    image: "/images/Nordrhein-Westfalen.png"
+  },
+  { 
+    name: 'Rheinland-Pfalz', 
+    displayName: 'Rheinland-Pfalz', 
+    description: 'Mosel, Rhein und historische Burgen',
+    image: "/images/Rheinland-Pfalz.png"
+  },
+  { 
+    name: 'Saarland', 
+    displayName: 'Saarland', 
+    description: 'Saarschleife und Naturschutzgebiete',
+    image: "/images/Saarland.png"
+  },
+  { 
+    name: 'Sachsen', 
+    displayName: 'Sachsen', 
+    description: 'Bastei, Elbtal und Erzgebirge',
+    image: "/images/Sachsen.png"
+  },
+  { 
+    name: 'Sachsen-Anhalt', 
+    displayName: 'Sachsen-Anhalt', 
+    description: 'Brocken, Harz und Saale-Unstrut',
+    image: "/images/Sachsen-Anhalt.png"
+  },
+  { 
+    name: 'Schleswig-Holstein', 
+    displayName: 'Schleswig-Holstein', 
+    description: 'Nordsee, Ostsee und Inseln',
+    image: "/images/Schleswig-Holstein.png"
+  },
+  { 
+    name: 'Thüringen', 
+    displayName: 'Thüringen', 
+    description: 'Wartburg, Hainich und Thüringerwald',
+    image: "/images/Thüringen.png"
+  }
+];
+
 
 export interface Viewpoint {
   id: string
@@ -26,32 +107,30 @@ export interface Viewpoint {
   description: string
   rating?: number
   reviews?: number
+  href?: string
 }
 
 export const viewpointsByState: Record<string, Viewpoint[]> = {
   'Baden-Württemberg': [
-    { id: 'bw-1', name: 'Schlossberg', city: 'Freiburg', lat: 48.0114, lng: 7.8558, description: 'Aussichtspunkt über Freiburg mit Blick auf die Altstadt und die Weinberge' },
-    { id: 'bw-2', name: 'Merkur', city: 'Baden-Baden', lat: 48.7758, lng: 8.2333, description: 'Höchster Berg der Schwarzwälder Westseite mit Panoramaaussicht' },
-    { id: 'bw-3', name: 'Feldberg', city: 'Schwarzwald', lat: 47.8765, lng: 8.0117, description: 'Höchster Gipfel des Schwarzwaldes mit 360-Grad-Ausblick' },
-    { id: 'bw-4', name: 'Hohentwiel', city: 'Singen', lat: 47.7617, lng: 8.8547, description: 'Vulkanberg mit Burg und fantastischer Aussicht ins Hegau' },
-    { id: 'bw-5', name: 'Belchen', city: 'Schwarzwald', lat: 47.8232, lng: 7.7101, description: 'Aussichtspunkt im südlichen Schwarzwald mit Weitblick' },
-    { id: 'bw-6', name: 'Achalm', city: 'Reutlingen', lat: 48.4778, lng: 9.2194, description: 'Burgruine mit schönem Ausblick über die Alblandschaft' },
-    { id: 'bw-7', name: 'Hohenzollern', city: 'Hechingen', lat: 48.3282, lng: 8.8664, description: 'Märchenschloss auf 855m Höhe mit Panoramablick' },
-    { id: 'bw-8', name: 'Aussichtsturm Pforzheim', city: 'Pforzheim', lat: 48.8857, lng: 8.6139, description: 'Turmaussicht über die Pforzheimuml Goldstadt' },
-    { id: 'bw-9', name: 'Uracher Wasserfall', city: 'Bad Urach', lat: 48.4701, lng: 9.3881, description: 'Schöner Wasserfall mit Aussichtspunkt in der Nähe' },
-    { id: 'bw-10', name: 'Lichtenstein Castle', city: 'Honau', lat: 48.4283, lng: 9.2739, description: 'Romantisches Schloss auf dem Fels mit Ausblick' },
-    { id: 'bw-11', name: 'Bärenhöhle', city: 'Sonnenbühl', lat: 48.3933, lng: 9.3484, description: 'Höhle auf der Schwäbischen Alb mit Aussichtspunkt' },
-    { id: 'bw-12', name: 'Randen', city: 'Hilzingen', lat: 47.8167, lng: 8.9167, description: 'Aussichtspunkt nahe der Schweizer Grenze' },
-    { id: 'bw-13', name: 'Blaubeuren', city: 'Blaubeuren', lat: 48.4025, lng: 9.8068, description: 'Blaubeurer Tal mit schönem Ausblick' },
-    { id: 'bw-14', name: 'Blauen', city: 'Schliengen', lat: 47.6739, lng: 7.6471, description: 'Aussicht über den Markgräflerland' },
-    { id: 'bw-15', name: 'Hohlohturm', city: 'Hornisgrinde', lat: 48.5408, lng: 8.2234, description: 'Turmaussicht im Schwarzwald' },
-    { id: 'bw-16', name: 'Maienberg', city: 'Staufen', lat: 47.6563, lng: 7.7451, description: 'Aussicht über das Tal und Freiburg' },
-    { id: 'bw-17', name: 'Donzdorf', city: 'Donzdorf', lat: 48.6954, lng: 9.5967, description: 'Filsursprung mit Aussichtspunkt' },
-    { id: 'bw-18', name: 'Höwenegg', city: 'Engen', lat: 47.7484, lng: 8.8139, description: 'Aussicht über den Bodensee' },
-    { id: 'bw-19', name: 'Hohenstoffeln', city: 'Moos', lat: 47.6902, lng: 8.8851, description: 'Vulkanberg im Hegau mit Burgaussicht' },
-    { id: 'bw-20', name: 'Rodalben', city: 'Rodalben', lat: 49.0694, lng: 7.7778, description: 'Aussicht auf die Pfälzer Alpen' },
-  ],
-  'Bayern': [
+    { id: 'bw-1', name: 'Schlossberg', city: 'Freiburg', lat: 48.0114, lng: 7.8558, description: 'Aussichtspunkt über Freiburg mit Blick auf die Altstadt und die Weinberge', href: 'https://visit.freiburg.de/schlossberg' },
+    { id: 'bw-2', name: 'Merkur', city: 'Baden-Baden', lat: 48.7758, lng: 8.2333, description: 'Höchster Berg der Schwarzwälder Westseite mit Panoramaaussicht',href: 'https://www.baden-baden.com/attraktionen/merkur-berg-5a6c61d549' },
+    { id: 'bw-3', name: 'Feldberg', city: 'Schwarzwald', lat: 47.8765, lng: 8.0117, description: 'Höchster Gipfel des Schwarzwaldes mit 360-Grad-Ausblick', href: 'https://www.feldberg-erlebnis.de/' },
+    { id: 'bw-4', name: 'Hohentwiel', city: 'Singen', lat: 47.7617, lng: 8.8547, description: 'Vulkanberg mit Burg und fantastischer Aussicht ins Hegau', href:'https://www.bodensee.de/ausflugsziele/festungsruine-hohentwiel'},
+    { id: 'bw-5', name: 'Belchen', city: 'Schwarzwald', lat: 47.8232, lng: 7.7101, description: 'Aussichtspunkt im südlichen Schwarzwald mit Weitblick', href : 'https://www.hochschwarzwald.de/erleben/ausflugsziele/ausflugsziele-schwarzwald/belchen' },
+    { id: 'bw-6', name: 'Achalm', city: 'Reutlingen', lat: 48.4778, lng: 9.2194, description: 'Burgruine mit schönem Ausblick über die Alblandschaft', href: 'https://www.reutlingen.de/de/Leben/Unsere-Stadt/Sehenswertes/Achalm'  },
+    { id: 'bw-7', name: 'Hohenzollern', city: 'Hechingen', lat: 48.3282, lng: 8.8664, description: 'Märchenschloss auf 855m Höhe mit Panoramablick', href: 'https://www.schwaebischealb.de/kultur/staufer-hohenzollern/die-hohenzollern-auf-der-schwaebischen-alb' },
+    { id: 'bw-8', name: 'Aussichtsturm Pforzheim', city: 'Pforzheim', lat: 48.8857, lng: 8.6139, description: 'Turmaussicht über die Pforzheimuml Goldstadt', href: 'https://www.schwarzwald-tourismus.info/attraktionen/hohe-warte-fd299d99e9' },
+    { id: 'bw-9', name: 'Uracher Wasserfall', city: 'Bad Urach', lat: 48.4701, lng: 9.3881, description: 'Schöner Wasserfall mit Aussichtspunkt in der Nähe', href : 'https://www.badurach-tourismus.de/attraktion/uracher-wasserfall-bd0513a23d' },
+    { id: 'bw-10', name: 'Lichtenstein Castle', city: 'Honau', lat: 48.4283, lng: 9.2739, description: 'Romantisches Schloss auf dem Fels mit Ausblick', href : 'https://www.mythos-schwaebische-alb.de/vor-ort/lichtenstein#/article' },
+    { id: 'bw-11', name: 'Bärenhöhle', city: 'Sonnenbühl', lat: 48.3933, lng: 9.3484, description: 'Höhle auf der Schwäbischen Alb mit Aussichtspunkt', href : 'https://www.schwaebischealb.de/attraktionen/baerenhoehle#/article/3c8df8bf-da58-4f15-9081-cbe4af33c50a' },
+    { id: 'bw-13', name: 'Blaubeuren', city: 'Blaubeuren', lat: 48.4025, lng: 9.8068, description: 'Blaubeurer Tal mit schönem Ausblick', href: 'https://www.schwaebischealb.de/staedte-orte/blaubeuren#/article/9d4d0a19-413b-46c5-abf6-1e83b284d3d4' },
+    { id: 'bw-14', name: 'Blauen', city: 'Schliengen', lat: 47.6739, lng: 7.6471, description: 'Aussicht über den Markgräflerland', href: 'https://www.komoot.com/de-de/tour/46301849'},
+    { id: 'bw-15', name: 'Hohlohturm', city: 'Hornisgrinde', lat: 48.5408, lng: 8.2234, description: 'Turmaussicht im Schwarzwald', href: 'https://www.urlaub-in-baden-wuerttemberg.de/urlaub/9029/Hohlohturm/index.htm'},
+    { id: 'bw-17', name: 'Donzdorf', city: 'Donzdorf', lat: 48.6954, lng: 9.5967, description: 'Filsursprung mit Aussichtspunkt', href: 'https://www.schwaebischealb.de/staedte-orte/donzdorf#/article/890399f3-c371-4a0a-a240-c45a6fff58ee' },
+    { id: 'bw-18', name: 'Höwenegg', city: 'Engen', lat: 47.7484, lng: 8.8139, description: 'Aussicht über den Bodensee', href: 'https://www.schwaebischealb.de/attraktionen/vulkan-hoewenegg#/article/d40565ca-ccb7-4b61-a83a-2706e8f10c93' },
+    { id: 'bw-19', name: 'Hohenstoffeln', city: 'Moos', lat: 47.6902, lng: 8.8851, description: 'Vulkanberg im Hegau mit Burgaussicht', href: 'https://www.komoot.com/de-de/highlight/146235' },
+     ],
+    'Bayern': [
     { id: 'by-1', name: 'Zugspitze', city: 'Garmisch-Partenkirchen', lat: 47.4212, lng: 10.9854, description: 'Höchster Berg Deutschlands mit atemberaubendem Alpenpanorama' },
     { id: 'by-2', name: 'Neuschwanstein', city: 'Hohenschwangau', lat: 47.5576, lng: 10.7498, description: 'Märchenschloss auf einem Hügel mit Aussicht in die Alpen' },
     { id: 'by-3', name: 'Tegelberg', city: 'Neuschwanstein', lat: 47.5723, lng: 10.7406, description: 'Beliebter Wanderberg mit Luftseilbahn und Panorama' },
