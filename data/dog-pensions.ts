@@ -9,6 +9,7 @@ export const dogPensionsByViewpoint: Record<string, any[]> = {
       website: "https://hundepension-freiburg-dreisamtal.de/",
       description: "Großzügige Pension auf dem historischen Prissenhof bei Freiburg mit Freilauf, Einzel- oder Gemeinschaftszimmern. "  
       // Quelle: :contentReference[oaicite:0]{index=0}  
+   
     },
     {
       id: "pension-freiburg-2",
@@ -83,7 +84,7 @@ export const dogPensionsByViewpoint: Record<string, any[]> = {
     {
       id: "pension-belchen-2",
       name: "4 Pfoten Paradies",
-      distance: ca. 20–30, je nach Standort,
+      distance: "ca. 20–30 km, je nach Standort",
       phone: "(siehe Webseite)",
       website: "https://www.4pfoten-paradies.de/",
       description: "Flexibel betreut, familienfreundlich, ideal wenn keine klassische Pension direkt am Berg vorhanden ist."  
@@ -164,7 +165,7 @@ export const dogPensionsByViewpoint: Record<string, any[]> = {
 
   // 📍 Uracher Wasserfall, Bad Urach
   "bw-9": [
-    {
+    /*{
       id: "pension-badurach-1",
       name: "Ute’s Tierpension",
       distance: 4, // geschätzt je nach Lage
@@ -172,7 +173,7 @@ export const dogPensionsByViewpoint: Record<string, any[]> = {
       website: "http://www.utes-tierpension.de",  
       description: "Tierpension in Bad Urach – Hunde auf Zeit untergebracht."  
       // Quelle: :contentReference[oaicite:4]{index=4}  
-    },
+    },*/
     {
       id: "pension-badurach-2",
       name: "Holidog Sitter Bad Urach",

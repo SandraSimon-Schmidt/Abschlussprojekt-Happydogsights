@@ -134,7 +134,15 @@ export default function ViewpointPage({
                 <CardTitle>Über diesen Aussichtspunkt</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-foreground/80">{viewpoint.description}</p>
+                <p className="text-foreground/80">{viewpoint.description}  {/* Website-Button */}
+  {viewpoint.href && (
+    <Button variant="link" size="sm" asChild className="mt-4" >
+      <a href={viewpoint.href} target="_blank" rel="noopener noreferrer">
+        <ExternalLink className="w-3 h-3 mr-1" />
+        Weitere Informationen
+      </a>
+    </Button>
+  )} </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-primary/5 rounded-lg p-4">
                     <p className="text-sm text-muted-foreground">Breite</p>

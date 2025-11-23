@@ -19,12 +19,6 @@ export default function Home() {
       state.displayName.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  // Zählt die Hundepensionen für alle Aussichtspunkte eines Bundeslandes
-  const getPensionsForState = (stateName: string) =>
-    (viewpointsByState[stateName] || []).reduce(
-      (sum, vp) => sum + (dogPensionsByViewpoint[vp.id]?.length || 0),
-      0
-    )
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
@@ -66,40 +60,34 @@ export default function Home() {
           </div>
         </div>
 
-        {/* States Grid 4x4 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {filteredStates.map((state) => (
-            <Link key={state.name} href={`/bundesland/${state.name}`}>
-              <Card className="h-full hover:shadow-xl hover:border-primary transition-all cursor-pointer group">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-primary group-hover:text-accent transition-colors">
-                    {state.displayName}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center">
-                  <img
-                    src="/images/deutschland.jpg"
-                    alt={state.displayName}
-                    className="w-full h-40 object-cover rounded-md mb-2"
-                  />
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4 text-accent" />
-                      <span>{viewpointsByState[state.name]?.length || 0} Aussichtspunkte</span>
-                    </div>
-                    {getPensionsForState(state.name) > 0 && (
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Heart className="w-4 h-4 text-pink-500" />
-                        <span>{getPensionsForState(state.name)} Hundepensionen in der Nähe</span>
-                      </div>
-                    )}
-                    <p className="text-sm text-foreground/70 line-clamp-2">{state.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+       {/* States Grid 4x4 */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+  {filteredStates.map((state) => (
+    <Link key={state.name} href={`/bundesland/${state.name}`}>
+      <Card className="h-full hover:shadow-xl hover:border-primary transition-all cursor-pointer group">
+        {/* CardHeader entfernt, da Name auf Bild */}
+        
+        <CardContent className="flex flex-col items-center justify-center text-center">
+         <img
+            src={state.image}
+            alt={state.displayName}
+            className="w-full h-40 object-contain rounded-md mb-4 bg-gray-100"
+          />
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span>{viewpointsByState[state.name]?.length || 0} Aussichtspunkte</span>
+            </div>
+            
+            <p className="text-sm text-foreground/70">{state.description}</p>
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
+  ))}
+</div>
+
 
         {filteredStates.length === 0 && (
           <div className="text-center py-12">
