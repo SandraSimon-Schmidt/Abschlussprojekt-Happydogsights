@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { states, viewpointsByState } from "@/data/viewpoints";
 import { Search, MapPin, Heart } from "lucide-react";
 import { dogPensionsByViewpoint } from "@/data/dog-pensions";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Dynamically import Map component with SSR disabled
 const Map = dynamic(() => import("@/components/map").then((mod) => mod.Map), {
@@ -28,20 +29,20 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-primary">
-              Aussichtspunkte.de
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Schöne Ausblicke & Hundepensionen
-            </p>
-          </div>
-          <Button variant="outline" size="sm">
-            DE
-          </Button>
-        </div>
-      </header>
+  <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <div>
+      <h1 className="text-2xl font-bold text-primary">Aussichtspunkte.de</h1>
+      <p className="text-sm text-muted-foreground">
+        Schöne Ausblicke & Hundepensionen
+      </p>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <Button variant="outline" size="sm">DE</Button>
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
