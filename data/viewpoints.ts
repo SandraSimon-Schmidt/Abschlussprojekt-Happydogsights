@@ -123,7 +123,6 @@ export const viewpointsByState: Record<string, Viewpoint[]> = {
     { id: 'bw-9', name: 'Uracher Wasserfall', city: 'Bad Urach', lat: 48.4701, lng: 9.3881, description: 'Schöner Wasserfall mit Aussichtspunkt in der Nähe', href : 'https://www.badurach-tourismus.de/attraktion/uracher-wasserfall-bd0513a23d' },
     { id: 'bw-10', name: 'Lichtenstein Castle', city: 'Honau', lat: 48.4283, lng: 9.2739, description: 'Romantisches Schloss auf dem Fels mit Ausblick', href : 'https://www.mythos-schwaebische-alb.de/vor-ort/lichtenstein#/article' },
     { id: 'bw-11', name: 'Bärenhöhle', city: 'Sonnenbühl', lat: 48.3933, lng: 9.3484, description: 'Höhle auf der Schwäbischen Alb mit Aussichtspunkt', href : 'https://www.schwaebischealb.de/attraktionen/baerenhoehle#/article/3c8df8bf-da58-4f15-9081-cbe4af33c50a' },
-    { id: 'bw-13', name: 'Blaubeuren', city: 'Blaubeuren', lat: 48.4025, lng: 9.8068, description: 'Blaubeurer Tal mit schönem Ausblick', href: 'https://www.schwaebischealb.de/staedte-orte/blaubeuren#/article/9d4d0a19-413b-46c5-abf6-1e83b284d3d4' },
     { id: 'bw-14', name: 'Blauen', city: 'Schliengen', lat: 47.6739, lng: 7.6471, description: 'Aussicht über den Markgräflerland', href: 'https://www.komoot.com/de-de/tour/46301849'},
     { id: 'bw-15', name: 'Hohlohturm', city: 'Hornisgrinde', lat: 48.5408, lng: 8.2234, description: 'Turmaussicht im Schwarzwald', href: 'https://www.urlaub-in-baden-wuerttemberg.de/urlaub/9029/Hohlohturm/index.htm'},
     { id: 'bw-17', name: 'Donzdorf', city: 'Donzdorf', lat: 48.6954, lng: 9.5967, description: 'Filsursprung mit Aussichtspunkt', href: 'https://www.schwaebischealb.de/staedte-orte/donzdorf#/article/890399f3-c371-4a0a-a240-c45a6fff58ee' },
@@ -131,72 +130,87 @@ export const viewpointsByState: Record<string, Viewpoint[]> = {
     { id: 'bw-19', name: 'Hohenstoffeln', city: 'Moos', lat: 47.6902, lng: 8.8851, description: 'Vulkanberg im Hegau mit Burgaussicht', href: 'https://www.komoot.com/de-de/highlight/146235' },
      ],
 'Bayern': [
-  { id: 'by-1', name: 'Zugspitze', city: 'Garmisch-Partenkirchen', lat: 47.4212, lng: 10.9854, description: 'Höchster Berg Deutschlands mit atemberaubendem Alpenpanorama', href: 'https://visit-muenchen-bayern.de/zugspitze/' }, // Ausblick & Gipfel
-  { id: 'by-2', name: 'Neuschwanstein', city: 'Hohenschwangau', lat: 47.5576, lng: 10.7498, description: 'Märchenschloss auf einem Hügel mit Aussicht in die Alpen', href: 'https://www.neuschwanstein.de/DE/' },
-  { id: 'by-3', name: 'Tegelberg', city: 'Neuschwanstein', lat: 47.5723, lng: 10.7406, description: 'Beliebter Wanderberg mit Luftseilbahn und Panorama', href: 'https://www.tegernseer-bergbahnen.de/tegernsee/lift-und-seilbahn/tegernsee-tegelberg' },
-  { id: 'by-4', name: 'Jenner', city: 'Berchtesgaden', lat: 47.5786, lng: 10.8633, description: 'Gipfel über dem Königssee mit alpiner Kulisse', href: 'https://www.berchtesgaden.de/sehenswuerdigkeiten/berg-und-aussichtsberge/jenner-berchtesgaden.html' },
-  { id: 'by-5', name: 'Kehlstein', city: 'Berchtesgaden', lat: 47.6333, lng: 10.9333, description: 'Eagles Nest mit dramatischer Aussicht über die Alpen', href: 'https://www.kehlsteinhaus.de/' },
-  { id: 'by-6', name: 'Wank', city: 'Garmisch', lat: 47.4721, lng: 11.0968, description: 'Aussichtspunkt mit Blick auf die Zugspitze', href: 'https://www.gapa.de/ga-pa-tourismus/sommer/wandern/berge/wank' },
-  { id: 'by-7', name: 'Wallberg', city: 'Tegernsee', lat: 47.7245, lng: 11.7618, description: 'Aussicht über den Tegernsee und die Voralpen', href: 'https://www.wallbergbahn.de/' },
-  { id: 'by-8', name: 'Herzogstand', city: 'Walchensee', lat: 47.5696, lng: 11.4819, description: 'Berggipfel mit alpinem Panorama', href: 'https://www.tegernseer-bergbahnen.de/tegernsee/lift-und-seilbahn/herzogstand' },
-  { id: 'by-9', name: 'Heimgarten', city: 'Walchensee', lat: 47.5590, lng: 11.5221, description: 'Aussicht auf den Walchensee und die Berge', href: 'https://www.wandern-mit-gipfelblick.de/wandern-bayern/heimgarten-wandern' },
-  { id: 'by-10', name: 'Großer Arber', city: 'Lam', lat: 48.9436, lng: 13.4147, description: 'Höchster Berg des Bayerischen Waldes', href: 'https://www.arber.de/' },
-  { id: 'by-11', name: 'Hohenbogen', city: 'Lam', lat: 48.9278, lng: 13.3268, description: 'Aussichtspunkt im Bayerischen Wald', href: 'https://www.bayerischer-wald.de/sehenswuerdigkeiten/wandern/hohenbogen/' },
-  { id: 'by-12', name: 'Ochsenkopf', city: 'Bischofsgrün', lat: 50.3100, lng: 11.8219, description: 'Berg mit Panorama in Oberfranken', href: 'https://www.ochsenkopf.de/' },
-  { id: 'by-13', name: 'Marienbrücke', city: 'Hohenschwangau', lat: 47.5687, lng: 10.7474, description: 'Fotopunkt für Neuschwanstein', href: 'https://www.neuschwanstein.de/DE/Fuer-Besucher/Sehenswuerdigkeiten/Marienbruecke/marienbruecke.html' },
-  { id: 'by-14', name: 'Olympiaberg', city: 'München', lat: 48.1745, lng: 11.5484, description: 'Aussicht über München von der Olympiastätte', href: 'https://www.olympiapark.de/' },
-  { id: 'by-15', name: 'Staffelberg', city: 'Bad Staffelstein', lat: 50.0458, lng: 11.2548, description: 'Aussichtspunkt in Franken mit Mainblick', href: 'https://www.stadt-bad-staffelstein.de/tourismus/der-staffelberg/' },
-  { id: 'by-16', name: 'Riedberger Horn', city: 'Balderschwang', lat: 47.5089, lng: 10.3369, description: 'Alpenaussicht im Allgäu', href: 'https://www.rittnerhorn.de/' },
-  { id: 'by-17', name: 'Kloster Andechs', city: 'Andechs', lat: 47.8719, lng: 11.2128, description: 'Klosterberg mit Ausblick über Seen und Berge', href: 'https://www.andechs.de/' },
-  { id: 'by-18', name: 'Hohenschwangau Castle', city: 'Hohenschwangau', lat: 47.5536, lng: 10.7454, description: 'Schlossaussicht in die Füssen-Region', href: 'https://www.schwangau.de/hohenschwangau-schloss/' },
-  { id: 'by-19', name: 'Nebelhorn', city: 'Oberstdorf', lat: 47.4172, lng: 10.2881, description: 'Berg mit Rundum-Sicht über Oberstdorf', href: 'https://www.nebelhornbahn.de/' },
-  { id: 'by-20', name: 'Linderhof', city: 'Ettal', lat: 47.5644, lng: 11.0036, description: 'Schloss mit Bergaussicht in den Ammergau', href: 'https://www.schloesser.bayern.de/deutsch/schloss/orte/lind.htm' },
+  { id: 'by-1', name: 'Zugspitze', city: 'Garmisch-Partenkirchen', lat: 47.4212, lng: 10.9854, description: 'Höchster Berg Deutschlands mit atemberaubendem Alpenpanorama', href: 'https://zugspitze.de/' },
+
+  { id: 'by-2', name: 'Neuschwanstein', city: 'Hohenschwangau', lat: 47.5576, lng: 10.7498, description: 'Märchenschloss auf einem Hügel mit Aussicht in die Alpen', href: 'https://www.neuschwanstein.de/' },
+
+  { id: 'by-3', name: 'Tegelberg', city: 'Schwangau', lat: 47.5723, lng: 10.7406, description: 'Beliebter Berg mit Seilbahn und Weitblick über Schwangau und Neuschwanstein', href: 'https://www.tegelbergbahn.de/' },
+
+  { id: 'by-4', name: 'Jenner', city: 'Berchtesgaden', lat: 47.5786, lng: 13.0103, description: 'Aussichtsgipfel am Königssee mit direktem Blick in die Berchtesgadener Alpen', href: 'https://www.jennerbahn.de/' },
+
+  { id: 'by-5', name: 'Kehlstein', city: 'Berchtesgaden', lat: 47.6333, lng: 13.0414, description: 'Der berühmte Aussichtspunkt „Eagle’s Nest“ mit weitem Alpenpanorama', href: 'https://www.kehlsteinhaus.de/' },
+
+  { id: 'by-6', name: 'Wank', city: 'Garmisch-Partenkirchen', lat: 47.4721, lng: 11.0968, description: 'Panoramaberg mit Blick auf Zugspitze und Garmisch', href: 'https://zugspitze.de/de/Unsere-Bergwelten/Die-Gebiete/Panoramaberg-Wank' },
+
+  { id: 'by-7', name: 'Wallberg', city: 'Tegernsee', lat: 47.7245, lng: 11.7618, description: 'Aussichtspunkt mit traumhaften Blicken auf den Tegernsee', href: 'https://www.wallbergbahn.de/' },
+
+  { id: 'by-8', name: 'Herzogstand', city: 'Walchensee', lat: 47.5696, lng: 11.4819, description: 'Beliebter Gipfel mit Aussicht auf Kochel- und Walchensee', href: 'https://www.herzogstandbahn.de/' },
+
+  { id: 'by-9', name: 'Heimgarten', city: 'Walchensee', lat: 47.5590, lng: 11.5221, description: 'Alpenklassiker mit grandioser Gratwanderung zum Herzogstand', href: 'https://www.wandern-mit-gipfelblick.de/wandern-bayern/heimgarten-wandern' },
+
+  { id: 'by-10', name: 'Großer Arber', city: 'Bayerischer Wald', lat: 48.9436, lng: 13.4147, description: 'Höchster Berg des Bayerischen Waldes mit Aussicht bis Tschechien', href: 'https://www.arber.de/' },
+
+  { id: 'by-11', name: 'Hohenbogen', city: 'Bayerischer Wald', lat: 48.9278, lng: 13.3264, description: 'Großes Bergmassiv mit Fernsicht über den gesamten Bayerwald', href: 'https://www.bayerischer-wald.de/sehenswuerdigkeiten/wandern/hohenbogen/' },
+
+  { id: 'by-12', name: 'Ochsenkopf', city: 'Bischofsgrün', lat: 50.0300, lng: 11.8080, description: 'Einer der höchsten Berge Oberfrankens, bekannt für Wintersport und Aussicht', href: 'https://www.fichtelgebirge.bayern/detail/id=5f8030b03e91d003a390c189' },
+
+  { id: 'by-13', name: 'Marienbrücke', city: 'Hohenschwangau', lat: 47.5687, lng: 10.7474, description: 'Berühmter Aussichtspunkt über die Pöllatschlucht direkt gegenüber Neuschwanstein', href: 'https://www.hohenschwangau.de/natur-umgebung/marienbruecke-1' },
+
+  { id: 'by-14', name: 'Olympiaberg', city: 'München', lat: 48.1745, lng: 11.5484, description: 'Münchens beliebtester Aussichtspunkt mit Blick über den Olympiapark und die Stadt', href: 'https://www.muenchen.de/sehenswuerdigkeiten/aussichtspunkte/olympiaberg' },
+
+  { id: 'by-15', name: 'Staffelberg', city: 'Bad Staffelstein', lat: 50.0458, lng: 11.2548, description: 'Der ikonische Tafelberg Frankens mit Blick über das Maintal', href: 'https://bad-staffelstein.de/de/tourismus/bad-staffelstein/sehenswuerdigkeiten/staffelberg.php?wt_campaign=short' },
+
+  { id: 'by-16', name: 'Riedberger Horn', city: 'Balderschwang', lat: 47.5089, lng: 10.3369, description: 'Aussichtsgipfel im Allgäu mit Almwiesen und weitem Panoramablick', href: 'https://www.hoernerdoerfer.de/riedberger-horn' },
+
+  { id: 'by-17', name: 'Kloster Andechs', city: 'Andechs', lat: 47.8719, lng: 11.2128, description: 'Klosterberg über dem Ammersee mit wunderschöner Aussicht und Wallfahrtsort', href: 'https://www.andechs.de/' },
+
+  { id: 'by-18', name: 'Schloss Hohenschwangau', city: 'Hohenschwangau', lat: 47.5536, lng: 10.7454, description: 'Historisches Schloss mit Aussicht über den Alpsee', href: 'https://www.hohenschwangau.de/' },
+
+  { id: 'by-19', name: 'Nebelhorn', city: 'Oberstdorf', lat: 47.4172, lng: 10.2881, description: 'Aussichtsgipfel über Oberstdorf mit spektakulärem 400-Gipfel-Blick', href: 'https://www.ok-bergbahnen.com/' },
+
+  { id: 'by-20', name: 'Schloss Linderhof', city: 'Ettal', lat: 47.5644, lng: 11.0036, description: 'Schloss König Ludwigs II. mit prachtvoller Parkanlage in alpiner Lage', href: 'https://www.schloesser.bayern.de/deutsch/schloss/orte/lind.htm' }
 ],
 
-  'Berlin': [
-    { id: 'be-1', name: 'Fernsehturm', city: 'Berlin Mitte', lat: 52.5200, lng: 13.4050, description: 'Berlins höchstes Bauwerk mit Aussichtsplattform über die ganze Stadt' },
-    { id: 'be-2', name: 'Teufelsberg', city: 'Grunewald', lat: 52.5195, lng: 13.1884, description: 'Künstlicher Hügel mit Aussicht über Grunewald und die Seen' },
-    { id: 'be-3', name: 'Viktoriapark', city: 'Kreuzberg', lat: 52.5020, lng: 13.3869, description: 'Urban-grüne Oase mit Denkmal und Sicht über Kreuzberg' },
-    { id: 'be-4', name: 'Müggelsee', city: 'Köpenick', lat: 52.4389, lng: 13.6464, description: 'Berlins höchster Punkt mit Blick über Wald und See' },
-    { id: 'be-5', name: 'Pfaueninsel', city: 'Nikolassee', lat: 52.4145, lng: 13.1968, description: 'Insel mit Schloss und Waldaussicht' },
-    { id: 'be-6', name: 'Reichstag Kuppel', city: 'Mitte', lat: 52.5186, lng: 13.3755, description: 'Glaskuppel mit 360-Grad-Blick über Berlin' },
-    { id: 'be-7', name: 'Charlottenburg Palace', city: 'Charlottenburg', lat: 52.5246, lng: 13.2950, description: 'Schlosspark mit Gartenaussicht' },
-    { id: 'be-8', name: 'Humboldthain', city: 'Wedding', lat: 52.5304, lng: 13.3867, description: 'Flak-Turm mit Aussicht über Berlin-Mitte' },
-    { id: 'be-9', name: 'Oberbaumbrücke', city: 'Friedrichshain', lat: 52.5022, lng: 13.4443, description: 'Brückenaussicht über die Spree' },
-    { id: 'be-10', name: 'Tiergarten Mound', city: 'Tiergarten', lat: 52.5196, lng: 13.3338, description: 'Kleine Höhe mit Parkaussicht' },
-    { id: 'be-11', name: 'Müggelsee Tower', city: 'Köpenick', lat: 52.4567, lng: 13.6445, description: 'Turm mit Blick über Köpenick' },
-    { id: 'be-12', name: 'Schlosspark Köpenick', city: 'Köpenick', lat: 52.4422, lng: 13.6512, description: 'Schlosspark am Wasser' },
-    { id: 'be-13', name: 'Britzer Garten', city: 'Neukölln', lat: 52.4589, lng: 13.4332, description: 'Gartenanlage mit Ausflugsaussicht' },
-    { id: 'be-14', name: 'Tempelhofer Feld', city: 'Tempelhof', lat: 52.4750, lng: 13.4050, description: 'Ehemaliger Flughafen mit Weitblick' },
-    { id: 'be-15', name: 'Landwehrkanal Brücke', city: 'Kreuzberg', lat: 52.4928, lng: 13.3829, description: 'Kanalaussicht im Zentrum' },
-    { id: 'be-16', name: 'Spandau Citadel', city: 'Spandau', lat: 52.5437, lng: 13.2048, description: 'Festung mit Aussicht über die Havel' },
-    { id: 'be-17', name: 'Rüdersdorf Limestone', city: 'Rüdersdorf', lat: 52.4333, lng: 13.7833, description: 'Kalkberg östlich von Berlin' },
-    { id: 'be-18', name: 'Park Babelsberg', city: 'Potsdam', lat: 52.3917, lng: 13.0770, description: 'Schlosspark mit Aussicht (Grenze zu Brandenburg)' },
-    { id: 'be-19', name: 'Tegeler See Uferpunkte', city: 'Tegeler See', lat: 52.5779, lng: 13.2689, description: 'Seeufer mit Ausblick' },
-    { id: 'be-20', name: 'Müggelsee Ufer', city: 'Köpenick', lat: 52.4389, lng: 13.6517, description: 'Größter Berliner See mit Uferpfad' },
-  ],
-  'Brandenburg': [
-    { id: 'bb-1', name: 'Sanssouci Belvedere', city: 'Potsdam', lat: 52.4048, lng: 13.0355, description: 'Schlosspark mit Panoramaaussicht auf die Havel' },
-    { id: 'bb-2', name: 'Spreewald Aussichtspunkt', city: 'Lübbenau', lat: 51.8917, lng: 13.6017, description: 'Aussicht in die grüne Spreewald-Flusslandschaft' },
-    { id: 'bb-3', name: 'Brandenburg Kathedrale', city: 'Brandenburg an der Havel', lat: 52.4168, lng: 12.5597, description: 'Höhenaussicht von der Kathedrale über die Stadt' },
-    { id: 'bb-4', name: 'Beelitz Heilstätten', city: 'Beelitz', lat: 52.1960, lng: 13.2160, description: 'Historisches Sanatorium mit Turmaussicht' },
-    { id: 'bb-5', name: 'Flatowturm', city: 'Neuruppin', lat: 52.9333, lng: 12.8167, description: 'Turmaussicht über die Ruppiner Seen' },
-    { id: 'bb-6', name: 'Stechlinsee', city: 'Gransee', lat: 53.1167, lng: 13.0167, description: 'Seeaussicht im Norden Brandenburgs' },
-    { id: 'bb-7', name: 'Rüdersdorf Cliffs', city: 'Rüdersdorf', lat: 52.4333, lng: 13.7833, description: 'Kalksteinwand mit Aussicht' },
-    { id: 'bb-8', name: 'Mügel See', city: 'Müggelsee', lat: 52.4589, lng: 13.6512, description: 'Größter See in Brandenburg' },
-    { id: 'bb-9', name: 'Tropical Islands', city: 'Krausnick', lat: 51.8806, lng: 13.5775, description: 'Aussicht auf die Tropenhalle' },
-    { id: 'bb-10', name: 'Theodor-Fontane Hill', city: 'Neuruppin', lat: 52.9222, lng: 12.8056, description: 'Hügelaussicht im Norden' },
-    { id: 'bb-11', name: 'Peitz Nature Reserve', city: 'Peitz', lat: 51.8111, lng: 14.2533, description: 'Naturschutzgebiet Aussicht' },
-    { id: 'bb-12', name: 'Oder River Viewpoint', city: 'Hohenwutzen', lat: 52.5333, lng: 14.5833, description: 'Grenzfluss mit Aussicht' },
-    { id: 'bb-13', name: 'Fürstenberg Lake', city: 'Fürstenberg', lat: 53.1667, lng: 13.1667, description: 'Seenlandschaft Aussicht' },
-    { id: 'bb-14', name: 'Burg Spreewald', city: 'Burg', lat: 51.8944, lng: 13.7472, description: 'Burgaussicht über Spreewald' },
-    { id: 'bb-15', name: 'Müritz Border', city: 'Mecklenburg-Vorpommern', lat: 53.4167, lng: 12.6667, description: 'Seenaussicht an der Grenze' },
-    { id: 'bb-16', name: 'Finow Valley', city: 'Eberswalde', lat: 52.8333, lng: 13.5500, description: 'Talaussicht im Norden' },
-    { id: 'bb-17', name: 'Rheinsberg Lake', city: 'Rheinsberg', lat: 53.0617, lng: 12.7875, description: 'Schlosspark mit Seaussicht' },
-    { id: 'bb-18', name: 'Stechlin Nature', city: 'Gransee', lat: 53.1278, lng: 13.0056, description: 'Naturschutzgebiet mit Aussicht' },
-    { id: 'bb-19', name: 'Tornow Lake', city: 'Liebenwalde', lat: 52.8722, lng: 13.2889, description: 'Kleine Seen Aussicht' },
-    { id: 'bb-20', name: 'Havelberg Hill', city: 'Havelberg', lat: 52.8333, lng: 12.1000, description: 'Domhügel mit Flussblick' },
-  ],
+
+'Berlin': [
+  { id: 'be-1', name: 'Fernsehturm', city: 'Berlin Mitte', lat: 52.5200, lng: 13.4050, description: 'Berlins höchstes Bauwerk mit Aussichtsplattform über die ganze Stadt', href: 'https://tv-turm.de/' },
+  { id: 'be-2', name: 'Teufelsberg', city: 'Grunewald', lat: 52.5195, lng: 13.1884, description: 'Künstlicher Trümmerberg mit Aussicht und alter Abhörstation', href: 'https://www.teufelsberg-berlin.de/' },
+  { id: 'be-3', name: 'Viktoriapark', city: 'Kreuzberg', lat: 52.5020, lng: 13.3869, description: 'Grüner Hügel mit Wasserfall und Panoramaaussicht', href: 'https://www.berlin.de/tourismus/parks-und-gaerten/3560783-1740419-viktoriapark.html' },
+  { id: 'be-4', name: 'Müggelsee', city: 'Köpenick', lat: 52.4389, lng: 13.6464, description: 'Seeufer mit Aussicht über Wald und Wasser', href: 'https://www.berlin.de/orte/sehenswuerdigkeiten/mueggelsee/' },
+  { id: 'be-5', name: 'Pfaueninsel', city: 'Nikolassee', lat: 52.4145, lng: 13.1968, description: 'Schlossinsel im Havel-Wald mit ruhiger Aussicht', href: 'https://www.pfaueninsel.info/' },
+  { id: 'be-6', name: 'Reichstag Kuppel', city: 'Mitte', lat: 52.5186, lng: 13.3755, description: 'Glaskuppel mit 360°-Blick über Regierungsviertel', href: 'https://www.bundestag.de/besuche/kuppel' },
+  { id: 'be-7', name: 'Schloss Charlottenburg', city: 'Charlottenburg', lat: 52.5246, lng: 13.2950, description: 'Schlosspark mit Aussicht über den Gärten', href: 'https://www.spsg.de/schloesser-gaerten/objekt/schloss-charlottenburg/' },
+  { id: 'be-8', name: 'Humboldthain Flakturm', city: 'Wedding', lat: 52.5304, lng: 13.3867, description: 'Bunker-Aussichtspunkt mit Panoramablick über Berlin', href: 'https://www.berlin.de/sehenswuerdigkeiten/3558964-3558930-flakturm-humboldthain.html' },
+  { id: 'be-9', name: 'Oberbaumbrücke', city: 'Friedrichshain', lat: 52.5022, lng: 13.4443, description: 'Historische Brücke über die Spree mit schöner Aussicht', href: 'https://www.berlin.de/sehenswuerdigkeiten/3558990-3558930-oberbaumbruecke.html' },
+  { id: 'be-10', name: 'Tiergarten Mound', city: 'Tiergarten', lat: 52.5196, lng: 13.3338, description: 'Kleine Anhöhe mitten im Tiergarten mit ruhigem Stadtblick', href: 'https://www.berlin.de/sehenswuerdigkeiten/3558936-3558930-berliner-tiergarten.html' },
+  { id: 'be-11', name: 'Müggelsee Turm', city: 'Köpenick', lat: 52.4567, lng: 13.6445, description: 'Aussichtsturm mit Blick über den Müggelsee und Berlin', href: 'https://www.berlin.de/orte/sehenswuerdigkeiten/mueggelsee/' },
+  { id: 'be-12', name: 'Schlosspark Köpenick', city: 'Köpenick', lat: 52.4422, lng: 13.6512, description: 'Wasserpark am Schloss Köpenick mit Blick über Spree und Gärten', href: 'https://www.berlin.de/kultur-und-geschichte/schloesser-und-gaerten/3560375-3560424-koepenick.html' },
+  { id: 'be-13', name: 'Britzer Garten', city: 'Neukölln', lat: 52.4589, lng: 13.4332, description: 'Große Gartenanlage mit Aussicht und Freizeitbereich', href: 'https://www.britzergarten.de/' },
+  { id: 'be-14', name: 'Tempelhofer Feld', city: 'Tempelhof', lat: 52.4750, lng: 13.4050, description: 'Ehemaliger Flughafen mit weitem Panorama über Berlin', href: 'https://www.berlin.de/sehenswuerdigkeiten/3560381-3558930-tempelhofer-feld.html' },
+  { id: 'be-15', name: 'Landwehrkanal Brücke', city: 'Kreuzberg', lat: 52.4928, lng: 13.3829, description: 'Brückenaussicht über den Landwehrkanal', href: 'https://de.wikipedia.org/wiki/Landwehrkanal#Br%C3%BCcken' },
+  { id: 'be-16', name: 'Zitadelle Spandau', city: 'Spandau', lat: 52.5437, lng: 13.2048, description: 'Geschichtsträchtige Zitadelle mit Blick über die Havel', href: 'https://www.zitadelle-spandau.de/' },
+  { id: 'be-17', name: 'Rüdersdorfer Kalkberg', city: 'Rüdersdorf', lat: 52.4333, lng: 13.7833, description: 'Kalkberg östlich von Berlin mit Aussicht über das Märkische Land', href: 'https://www.rue-dersdorf-tourismus.de/' },
+  { id: 'be-18', name: 'Park Babelsberg', city: 'Potsdam', lat: 52.3917, lng: 13.0770, description: 'Schlosspark mit Aussicht über die Havel und Potsdamer Skyline', href: 'https://www.spsg.de/schloesser-gaerten/objekt/park-babelsberg/' },
+  { id: 'be-19', name: 'Tegeler See Ufer', city: 'Tegel', lat: 52.5779, lng: 13.2689, description: 'Uferpunkt mit Aussicht auf den Tegeler See', href: 'https://www.berlin.de/sehenswuerdigkeiten/3558942-3558930-tegeler-see.html' },
+  { id: 'be-20', name: 'Müggelsee Ufer', city: 'Köpenick', lat: 52.4389, lng: 13.6517, description: 'Weitläufiges Ufer mit Panoramablick über den Müggelsee', href: 'https://www.berlin.de/orte/sehenswuerdigkeiten/mueggelsee/' },
+],
+
+'Brandenburg': [
+  { id: 'bb-1', name: 'Sanssouci Belvedere', city: 'Potsdam', lat: 52.4048, lng: 13.0355, description: 'Schlosspark mit Panoramaaussicht auf die Havel', href: 'https://www.pfingstberg.de' },
+  { id: 'bb-2', name: 'Spreewald Aussichtspunkt', city: 'Lübbenau', lat: 51.8917, lng: 13.6017, description: 'Aussicht in die grüne Spreewald-Flusslandschaft' , href: 'https://www.spreewald.de/der-spreewald/herbst-im-spreewald/herbstliche-aussichtspunkte'},
+  { id: 'bb-3', name: 'Brandenburg Kathedrale', city: 'Brandenburg an der Havel', lat: 52.4168, lng: 12.5597, description: 'Höhenaussicht von der Kathedrale über die Stadt' },
+  { id: 'bb-4', name: 'Beelitz Heilstätten (Baumkronenpfad)', city: 'Beelitz', lat: 52.1960, lng: 13.2160, description: 'Historisches Sanatorium mit Turmaussicht', href: 'https://erlebnis-brandenburg.de/baumkronenpfad-beelitz' },
+  { id: 'bb-5', name: 'Flatowturm', city: 'Neuruppin', lat: 52.9333, lng: 12.8167, description: 'Turmaussicht über die Ruppiner Seen' },
+  { id: 'bb-6', name: 'Stechlinsee', city: 'Gransee', lat: 53.1167, lng: 13.0167, description: 'Seeaussicht im Norden Brandenburgs', href: 'https://reiseziele-brandenburg.de/stechlin-ruppiner-land' },
+  { id: 'bb-7', name: 'Wietkiekenberg Turm', city: 'Ferch / Schwielowsee', lat: 52.405, lng: 12.957, description: 'Aussichtsturm auf dem Wietkiekenberg mit Blick über die Mark Brandenburg', href: 'https://mandysabenteuerwelt.de/aussichtsturm-wietkiekenberg/' },
+  { id: 'bb-8', name: 'Mescherin Aussichtsturm', city: 'Mescherin', lat: 53.501, lng: 14.508, description: 'Holzturm mit Aussicht über die Oder und Uckermark', href: 'https://www.brandenburg-original.de/aussicht.php' },
+  { id: 'bb-9', name: 'Blumenthaler Aussichtsturm', city: 'Heiligengrabe / Blumenthal', lat: 53.047, lng: 12.039, description: 'Holz-Aussichtsturm, 36-m hoch', href: 'http://www.blumenthaler-aussichtsturm.de/' },
+  { id: 'bb-10', name: 'Tropical Islands Aussichtspunkt', city: 'Krausnick', lat: 51.8806, lng: 13.5775, description: 'Aussicht auf die Tropenhalle', href: 'https://www.tropical-islands.de' },
+  { id: 'bb-11', name: 'Rheinsberg Schloss-Seeblick', city: 'Rheinsberg', lat: 53.0617, lng: 12.7875, description: 'Schlosspark mit Seeblick', href: 'https://www.rheinsberg.de/tourismus/uebernachten/sehenswuerdigkeiten' },
+  { id: 'bb-12', name: 'Stechlin Naturpark Aussicht', city: 'Gransee', lat: 53.1278, lng: 13.0056, description: 'Naturschutzgebiet mit Aussicht', href: 'https://www.draussen-am-see.de/seen/stechlinsee/' },
+  { id: 'bb-13', name: 'Havelberg Domhügel Aussicht', city: 'Havelberg', lat: 52.8333, lng: 12.1, description: 'Domhügel mit Flussblick über die Havel', href: 'https://www.reiseland-brandenburg.de/poi/havelland/kirchen/dom-st-marien' },
+],
+
   'Bremen': [
     { id: 'brm-1', name: 'Marktplatz Blick', city: 'Bremen', lat: 53.0733, lng: 8.8077, description: 'Aussicht auf Rathaus und Altstadt' },
     { id: 'brm-2', name: 'St. Petri Cathedral', city: 'Bremen', lat: 53.0747, lng: 8.8088, description: 'Domspitze mit Blick über Bremen' },

@@ -99,17 +99,7 @@ export default function StatePage({
                   <p className="text-sm text-foreground/70 line-clamp-3 mb-4">
                     {viewpoint.description}
                   </p>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-3 h-3 fill-accent text-accent"
-                      />
-                    ))}
-                    <span className="text-xs text-muted-foreground ml-2">
-                      (12 Bewertungen)
-                    </span>
-                  </div>
+                 
                 </CardContent>
               </Card>
             </Link>
