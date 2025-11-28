@@ -127,7 +127,7 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
                   className="w-full flex justify-between items-center"
                   onClick={() => setShowInfo(!showInfo)}
                 >
-                  <span>Informationen zum Aussichtspunkt</span>
+                  <span>Information zum Aussichtspunkt</span>
                   <span className="text-muted-foreground">{showInfo ? "▲" : "▼"}</span>
                 </Button>
 
