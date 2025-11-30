@@ -1,118 +1,132 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { addRating, getRatings, Rating } from "@/lib/ratings";
+import { useState } from "react";
+import { Rating, addRating } from "@/lib/ratings";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 
-type ViewpointReviewsProps = {
+interface ViewpointReviewsProps {
+  reviews: Rating[];
+  setReviews: (reviews: Rating[]) => void;
   viewpointId: string;
-};
+}
 
-export function ViewpointReviews({ viewpointId }: ViewpointReviewsProps) {
-  const [ratings, setRatings] = useState<Rating[]>([]);
-  const [showView, setShowView] = useState<"view" | "write">("view");
+export function ViewpointReviews({ reviews, setReviews, viewpointId }: ViewpointReviewsProps) {
+  const [showList, setShowList] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
   const [userName, setUserName] = useState("");
   const [comment, setComment] = useState("");
-  const [ratingValue, setRatingValue] = useState(1);
+  const [rating, setRating] = useState(0);
 
-  // Bewertungen laden
-  const fetchRatings = async () => {
-    const data = await getRatings(viewpointId);
-    setRatings(data);
+  const handleSubmit = async () => {
+    if (!userName || !comment || rating === 0) return;
+    const newRating = await addRating(viewpointId, userName, rating, comment);
+    if (newRating) {
+      setReviews([newRating, ...reviews]);
+      setUserName("");
+      setComment("");
+      setRating(0);
+      setShowForm(false);
+      setShowList(true);
+    }
   };
 
-  useEffect(() => {
-    fetchRatings();
-  }, [viewpointId]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await addRating(viewpointId, userName, ratingValue, comment);
-    setUserName("");
-    setComment("");
-    setRatingValue(1);
-    await fetchRatings();
-    setShowView("view"); // nach Absenden wieder Ansicht
-  };
-
-  // Durchschnitt berechnen
-  const averageRating =
-    ratings.length > 0
-      ? ratings.reduce((acc, r) => acc + r.rating, 0) / ratings.length
-      : 0;
+  const totalReviews = reviews.length;
+  const avgRating = totalReviews > 0 ? reviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews : 0;
+  const ratingCounts = [5,4,3,2,1].map(star => reviews.filter(r => r.rating === star).length);
+  const getPercent = (count: number) => totalReviews === 0 ? 0 : (count / totalReviews) * 100;
 
   return (
-    <div className="mt-4">
-      <div className="flex space-x-2 mb-4">
-        <Button
-          variant={showView === "view" ? "default" : "outline"}
-          onClick={() => setShowView("view")}
-        >
-          Bewertungen ansehen
+    <div className="space-y-4">
+      {/* Zwei Buttons */}
+      <div className="flex gap-2">
+        <Button onClick={() => { setShowList(!showList); setShowForm(false); }}>
+          Alle Bewertungen ansehen
         </Button>
-        <Button
-          variant={showView === "write" ? "default" : "outline"}
-          onClick={() => setShowView("write")}
-        >
-          Bewertung schreiben
+        <Button onClick={() => { setShowForm(!showForm); setShowList(false); }}>
+          Eigene Bewertung schreiben
         </Button>
       </div>
 
-      {showView === "view" && (
-        <div>
-          <div className="mb-2 font-semibold">
-            Durchschnittliche Bewertung: {averageRating.toFixed(1)}{" "}
-            <Star className="inline-block w-4 h-4 text-yellow-500" />
-          </div>
-          {ratings.length === 0 && <p>Noch keine Bewertungen.</p>}
-          {ratings.map((r) => (
-            <div key={r.id} className="border-b py-2">
-              <div className="font-semibold">{r.user_name}</div>
-              <div>
-                {Array.from({ length: r.rating }).map((_, i) => (
-                  <Star key={i} className="inline-block w-4 h-4 text-yellow-500" />
-                ))}
-              </div>
-              <div>{r.comment}</div>
+      {/* Balkendiagramm & Liste */}
+      {showList && (
+        <div className="space-y-2">
+          {/* Durchschnitt */}
+          <div className="flex items-center gap-2">
+            <span className="font-semibold">Durchschnitt: </span>
+            <span>{avgRating.toFixed(1)} / 5</span>
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className={`w-4 h-4 ${i < Math.round(avgRating) ? "text-yellow-500" : "text-gray-300"}`} />
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Statistik Balkendiagramm */}
+          <div className="space-y-1">
+            { [5,4,3,2,1].map((star, idx) => (
+              <div key={star} className="flex items-center gap-2">
+                <span className="w-10 text-sm">{star} Sterne</span>
+                <div className="flex-1 h-3 bg-gray-200 rounded overflow-hidden">
+                  <div
+                    className="h-3 bg-yellow-500"
+                    style={{ width: `${getPercent(ratingCounts[idx])}%` }}
+                  />
+                </div>
+                <span className="w-6 text-right text-sm">{ratingCounts[idx]}</span>
+              </div>
+            )) }
+          </div>
+
+          {/* Liste aller Bewertungen */}
+          <div className="space-y-2 border-t pt-2">
+            {reviews.map(r => (
+              <div key={r.id} className="border-b pb-2">
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${i < r.rating ? "text-yellow-500" : "text-gray-300"}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm font-semibold">{r.user_name}</p>
+                <p className="text-sm">{r.comment}</p>
+                <p className="text-xs text-gray-400">{new Date(r.created_at).toLocaleDateString()}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
-      {showView === "write" && (
-        <form onSubmit={handleSubmit} className="space-y-2">
+      {/* Formular für neue Bewertung */}
+      {showForm && (
+        <div className="space-y-2 border-t pt-2">
           <input
             type="text"
             placeholder="Name"
             value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            className="w-full border rounded p-2"
-            required
+            onChange={e => setUserName(e.target.value)}
+            className="w-full border p-1 rounded"
           />
           <textarea
             placeholder="Kommentar"
             value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            className="w-full border rounded p-2"
-            required
+            onChange={e => setComment(e.target.value)}
+            className="w-full border p-1 rounded"
           />
-          <div>
-            Bewertung:
-            <select
-              value={ratingValue}
-              onChange={(e) => setRatingValue(Number(e.target.value))}
-              className="ml-2 border rounded p-1"
-            >
-              {[1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n}>
-                  {n}
-                </option>
-              ))}
-            </select>
+          <div className="flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                className={`w-6 h-6 cursor-pointer ${i < rating ? "text-yellow-500" : "text-gray-300"}`}
+                onClick={() => setRating(i + 1)}
+              />
+            ))}
           </div>
-          <Button type="submit">Abschicken</Button>
-        </form>
+          <Button onClick={handleSubmit}>Bewertung absenden</Button>
+        </div>
       )}
     </div>
   );

@@ -1,9 +1,14 @@
 "use client";
 
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
-import { viewpointsByState } from "@/data/viewpoints";
+import { viewpointsByState, Viewpoint } from "@/data/viewpoints";
+import { dogPensionsByViewpoint } from "@/data/dog-pensions";
 import { Map } from "@/components/map";
+import { ViewpointReviews } from "@/components/ViewpointReviews";
+import { getRatings, Rating } from "@/lib/ratings";
+
 import {
   Card,
   CardContent,
@@ -13,27 +18,17 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, ExternalLink, ChevronLeft, Heart } from "lucide-react";
-import { dogPensionsByViewpoint } from "@/data/dog-pensions";
-import { ViewpointReviews } from "@/components/ViewpointReviews";
-import { getRatings } from "@/lib/ratings";
-import { Viewpoint } from "@/data/viewpoints";
 
+export default function ViewpointPage() {
+  const params = useParams();
+  const id = params?.id as string;
 
-interface Review {
-  id: string;
-  user_name: string;
-  rating: number;
-  comment: string;
-  created_at: string;
-}
-export default function ViewpointPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
   const [isFavorite, setIsFavorite] = useState(false);
   const [showReviewsCard, setShowReviewsCard] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-  const [reviews, setReviews] = useState<Review[]>([]);
+  const [reviews, setReviews] = useState<Rating[]>([]);
 
-
+  // Aussichtspunkt suchen
   let viewpoint: Viewpoint | null = null;
   let stateKey = "";
 
@@ -48,7 +43,7 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
 
   const pensions = dogPensionsByViewpoint[id] || [];
 
-  // Bewertungen beim Laden
+  // Bewertungen beim Laden holen
   useEffect(() => {
     async function fetchRatings() {
       if (!viewpoint) return;
@@ -120,7 +115,7 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
               </CardHeader>
 
               <CardContent className="space-y-4">
-                {/* Informationen aufklappbar */}
+                {/* Informations-Button */}
                 <Button
                   variant="outline"
                   size="sm"
@@ -133,26 +128,18 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
 
                 {showInfo && (
                   <div className="mt-2 pl-8 pt-3 pb-3 border rounded-lg bg-muted/50 flex items-center gap-6">
-                    <p className="text-sm text-muted-foreground m-0">
-                      Länge: {viewpoint.lat}
-                    </p>
-                    <p className="text-sm text-muted-foreground m-0">
-                      Breite: {viewpoint.lng}
-                    </p>
-                    <Button
-                      variant="link"
-                      className="flex items-center font-semibold p-0 ml-4"
-                      asChild
-                    >
-                     <a href={viewpoint.href} target="_blank" rel="noopener noreferrer">
-    <ExternalLink className="w-4 h-4 mr-1" /> {/* Icon vor dem Text */}
-    Webseite zum Aussichtspunkt
-  </a>
+                    <p className="text-sm text-muted-foreground m-0">Länge: {viewpoint.lat}</p>
+                    <p className="text-sm text-muted-foreground m-0">Breite: {viewpoint.lng}</p>
+                    <Button variant="link" className="flex items-center font-semibold p-0 ml-4" asChild>
+                      <a href={viewpoint.href} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        Webseite zum Aussichtspunkt
+                      </a>
                     </Button>
                   </div>
                 )}
 
-                {/* Aufklappbarer Bereich Bewertungen */}
+                {/* Bewertungen */}
                 <Button
                   variant="outline"
                   size="sm"
@@ -169,7 +156,9 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
 
                 {showReviewsCard && (
                   <ViewpointReviews
-                    {...({ reviews, setReviews, viewpointId: viewpoint.id } as any)}
+                    reviews={reviews}
+                    setReviews={setReviews}
+                    viewpointId={viewpoint.id}
                   />
                 )}
               </CardContent>
@@ -196,6 +185,7 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
                           <span>{pension.name}</span>
                           <span>{open ? "▲" : "▼"}</span>
                         </Button>
+
                         {open && (
                           <div className="mt-2 pl-8 pt-3 pb-3 border rounded-lg bg-muted/50 space-y-2">
                             <p className="text-sm text-muted-foreground flex items-center gap-1">
@@ -204,15 +194,12 @@ export default function ViewpointPage({ params }: { params: Promise<{ id: string
                             <p className="text-sm text-foreground/70">{pension.description}</p>
                             <div className="flex gap-2">
                               <Button variant="link" size="sm" asChild>
-                                         <a href={`tel:${pension.phone}`}>{/*telefon-icon eingefügt*/}<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.13.9.38 1.78.74 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.47-.47a2 2 0 0 1 2.11-.45c.83.36 1.71.61 2.61.74A2 2 0 0 1 22 16.92z"/>
-              </svg>Anrufen</a>
+                                <a href={`tel:${pension.phone}`}>📞 Anrufen</a>
                               </Button>
                               <Button variant="link" size="sm" asChild>
-                             <a href={pension.website} target="_blank" rel="noopener noreferrer">
-    <ExternalLink className="w-4 h-4 mr-1" />
-    Website
-  </a>
+                                <a href={pension.website} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="w-4 h-4 mr-1" /> Website
+                                </a>
                               </Button>
                             </div>
                           </div>
