@@ -35,7 +35,7 @@ export default function Home() {
                 Happy Dog Sights 🐶
               </h1>
               <p className="text-sm text-muted-foreground">
-                Schöne Ausblicke & Hundepensionen
+                Schöne Ausblicke und Hundepensionen
               </p>
             </div>
             <div className="flex items-center gap-3">
